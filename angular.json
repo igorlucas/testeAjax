@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "demoUI": {
+    "sspUI": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/demoUI",
+            "outputPath": "dist/sspUI",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -27,6 +27,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -62,18 +64,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "demoUI:build"
+            "browserTarget": "sspUI:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "demoUI:build:production"
+              "browserTarget": "sspUI:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "demoUI:build"
+            "browserTarget": "sspUI:build"
           }
         },
         "test": {
@@ -84,6 +86,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": [],
@@ -107,7 +110,7 @@
         }
       }
     },
-    "demoUI-e2e": {
+    "sspUI-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +119,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "demoUI:serve"
+            "devServerTarget": "sspUI:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "demoUI:serve:production"
+              "devServerTarget": "sspUI:serve:production"
             }
           }
         },
@@ -136,5 +139,5 @@
       }
     }
   },
-  "defaultProject": "demoUI"
+  "defaultProject": "sspUI"
 }

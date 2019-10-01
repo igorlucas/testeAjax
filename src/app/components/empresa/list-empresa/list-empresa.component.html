@@ -1,0 +1,30 @@
+<h1 class="text-center">Lista de Empresas</h1>
+<hr>
+<button class="btn btn-primary" routerLink="/empresa/create">Novo</button>
+<table class="text-center table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">CEP</th>
+            <th scope="col">CNPJ</th>
+            <th scope="col">UF</th>
+            <th scope="col">Localidade</th>
+            <th scope="col">Logradouro</th>
+            <th scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of empresas">
+            <td>{{e.nome}}</td>
+            <td>{{e.cep}}</td>
+            <td>{{e.cnpj}}</td>
+            <td>{{e.uf}}</td>
+            <td>{{e.localidade}}</td>
+            <td>{{e.logradouro}}</td>
+            <td style="margin: 0; padding:0; width: 30%;">
+                <button class="btn btn-danger" (click)="delete(e.id)">Apagar</button>
+                <!-- <button class="btn btn-info" (click)="edit(e.id)">Detalhes</button> -->
+            </td>
+        </tr>
+    </tbody>
+</table>
