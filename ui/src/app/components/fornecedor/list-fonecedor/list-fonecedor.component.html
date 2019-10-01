@@ -1,0 +1,55 @@
+<h1 class="text-center">Lista de Fornecedores</h1>
+<hr>
+<div>
+    <div class="form-group row">
+
+        <label class="col-sm-1 col-form-label">Empresa</label>
+        <select class="form-control col-sm-2" name="empresa" [(ngModel)]="filtro.empresa">
+            <option [ngValue]="null" [disabled]>Selecione...</option>
+            <option *ngFor="let e of empresas" [ngValue]="e">
+                {{ e.nome }}
+            </option>
+        </select>
+
+        <label class="col-sm-1 col-form-label">Nome</label>
+        <input type="text" class="form-control col-sm-2" name="nome" [(ngModel)]="filtro.nome">
+
+        <label class="col-sm-1 col-form-label">CPF/CNPJ</label>
+        <input type="text" class="form-control col-sm-2" name="cpfOuCnpj" [(ngModel)]="filtro.cpfOuCnpj">
+
+        <label class="col-sm-1 col-form-label">Cadastro</label>
+        <input type="date" class="form-control col-sm-2" name="dtCadastro" [(ngModel)]="filtro.dtCadastro">
+    </div>
+    <div class="row">
+        <button class="btn btn-info" (click)="filtar()">Filtrar</button>
+    </div>
+
+
+    <!-- <input type="text" class="form-control" placeholder="filtar">
+    <button class="btn btn-info">Filtar</button> -->
+</div>
+<hr>
+<button class="btn btn-primary" routerLink="/fornecedor/create">Novo</button>
+<table class="text-center table table-striped table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Empresa</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">CPF/CNPJ</th>
+            <th scope="col">Ação</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of fornecedores">
+            <td>{{f.nome}}</td>
+            <td>{{f.empresa.nome}}</td>
+            <td>{{loadTF(f.tipo)}}</td>
+            <td>{{f.cpfOuCnpj}}</td>
+            <td style="margin: 0; padding:0; width: 30%;">
+                <button class="btn btn-danger" (click)="delete(f.id)">Apagar</button>
+                <button class="btn btn-info" (click)="detail(f.id)">Detalhes</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

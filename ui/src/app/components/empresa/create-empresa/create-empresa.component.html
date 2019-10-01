@@ -1,0 +1,41 @@
+<h1 class="text-center">{{title}}</h1>
+<hr>
+<form>
+  <div *ngIf="msg" class="alert alert-danger">{{msg}}</div>
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label">Nome</label>
+    <input type="text" class="col-sm-5 form-control" name="name" [(ngModel)]="empresa.nome">
+
+    <label class="col-sm-1">CNPJ</label>
+    <input type="text" class="col-sm-5 form-control" name="cnpj" [(ngModel)]="empresa.cnpj">
+
+  </div>
+
+  <div class="form-group row">
+    <label class="col-sm-1 col-form-label">CEP</label>
+    <input type="text" class="col-sm-4 form-control" name="cep" [(ngModel)]="empresa.cep">
+
+    <label class="col-sm-1">UF</label>
+    <input type="text" class="col-sm-1 form-control" name="uf" [(ngModel)]="empresa.uf" [disabled]="!showEnd">
+
+    <label class="col-sm-2">Localidade</label>
+    <input type="text" class="col-sm-3 form-control" name="localidade" [(ngModel)]="empresa.localidade"
+      [disabled]="!showEnd">
+  </div>
+
+
+  <div class="form-group row">
+    <label class="col-sm-2 col-form-label">Logradouro</label>
+    <input type="text" class="col-sm-4 form-control" name="logradouro" [(ngModel)]="empresa.logradouro"
+      [disabled]="!showEnd">
+
+    <button class="btn btn-info" (click)="loadEnd()">Carregar endereço</button>
+  </div>
+  <button type="button" class="btn btn-primary" (click)="register()">SALVAR</button>
+</form>
+
+<style>
+  button {
+    margin-left: 5px;
+  }
+</style>
